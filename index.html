@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Her Next Chapter™ | Beyond Zones Coaching with Kim</title>
+    <meta name="description" content="Rediscover your confidence, reconnect with your desires, and create a life fully aligned with who you're becoming. Beyond Zones Framework™ coaching for women.">
+    <meta property="og:title" content="Her Next Chapter™ — Beyond Zones Coaching">
+    <meta property="og:description" content="Coaching for women navigating life transitions, relationship changes and personal reinvention.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --emerald:    #0F3D36;
+            --forest:     #123F39;
+            --gold:       #C8A56B;
+            --soft-gold:  #D9C29A;
+            --cream:      #F6F2ED;
+            --charcoal:   #2F2F2F;
+            --line:       rgba(15,61,54,.12);
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--cream);
+            color: var(--charcoal);
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+        }
+        h1, h2, h3, h4, .font-head {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        /* ── NAV ── */
+        #nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+            padding: 1.5rem 0;
+            transition: background .3s, padding .3s, box-shadow .3s;
+        }
+        #nav.scrolled {
+            background: rgba(246,242,237,.97);
+            backdrop-filter: blur(8px);
+            padding: .9rem 0;
+            box-shadow: 0 1px 20px rgba(15,61,54,.08);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+        .nav-logo img { height: 2.5rem; width: auto; mix-blend-mode: multiply; }
+        .nav-logo span {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500;
+            color: var(--emerald); letter-spacing: .02em;
+        }
+        .nav-links { display: flex; align-items: center; gap: 2rem; }
+        .nav-links a {
+            color: var(--charcoal); text-decoration: none; font-size: .8rem; font-weight: 700;
+            letter-spacing: .15em; text-transform: uppercase;
+            transition: color .2s;
+        }
+        .nav-links a:hover { color: var(--emerald); }
+        .nav-cta {
+            background: var(--emerald); color: #fff !important;
+            padding: .6rem 1.5rem; border-radius: 2px;
+            font-size: .75rem !important; font-weight: 700 !important;
+            letter-spacing: .15em; text-transform: uppercase;
+            transition: background .2s !important;
+        }
+        .nav-cta:hover { background: var(--forest) !important; color: #fff !important; }
+
+        /* Mobile nav */
+        #menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--emerald); padding: .25rem; }
+        #mobile-menu {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.1);
+            padding: 1.5rem; border-top: 1px solid var(--line);
+            flex-direction: column; align-items: center; gap: 1rem;
+        }
+        #mobile-menu.open { display: flex; }
+        #mobile-menu a {
+            color: var(--charcoal); text-decoration: none; font-size: .8rem; font-weight: 700;
+            letter-spacing: .15em; text-transform: uppercase; padding: .5rem 0;
+        }
+        #mobile-menu a:hover { color: var(--emerald); }
+        #mobile-menu .mob-cta {
+            background: var(--emerald); color: #fff; padding: .75rem 2.5rem;
+            border-radius: 2px; width: 100%; text-align: center; max-width: 280px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            #menu-btn { display: block; }
+        }
+
+        /* ── HERO ── */
+        #hero {
+            padding: 8rem 0 5rem;
+            background: var(--cream);
+            overflow: hidden;
+        }
+        .hero-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; align-items: center; gap: 4rem;
+        }
+        .hero-text { flex: 1; }
+        .hero-img { flex: 1; display: flex; justify-content: center; }
+        .hero-img img { width: 100%; max-width: 480px; object-fit: contain; mix-blend-mode: multiply; }
+        #hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1;
+            color: var(--emerald); margin-bottom: 1.5rem;
+        }
+        .hero-sub {
+            font-size: 1.15rem; color: rgba(47,47,47,.8); margin-bottom: 1rem;
+            font-weight: 300; line-height: 1.7; max-width: 520px;
+        }
+        .hero-desc {
+            font-size: 1rem; color: rgba(47,47,47,.7); margin-bottom: 2.5rem;
+            font-weight: 300; line-height: 1.7; max-width: 520px;
+        }
+        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--emerald); color: #fff;
+            padding: 1rem 2rem; border-radius: 2px; border: none;
+            font-family: 'Lato', sans-serif; font-size: .85rem; font-weight: 700;
+            letter-spacing: .08em; text-transform: uppercase;
+            cursor: pointer; text-decoration: none;
+            transition: background .2s;
+        }
+        .btn-primary:hover { background: var(--forest); }
+        .btn-outline {
+            background: transparent; color: var(--emerald);
+            padding: 1rem 2rem; border-radius: 2px;
+            border: 1.5px solid var(--emerald);
+            font-family: 'Lato', sans-serif; font-size: .85rem; font-weight: 700;
+            letter-spacing: .08em; text-transform: uppercase;
+            cursor: pointer; text-decoration: none;
+            transition: background .2s, color .2s;
+        }
+        .btn-outline:hover { background: var(--emerald); color: #fff; }
+        .hero-stars { margin-top: 3rem; display: flex; align-items: center; gap: 1rem; }
+        .stars { display: flex; color: var(--gold); }
+        .hero-quote { font-size: .85rem; font-style: italic; color: rgba(47,47,47,.6); }
+
+        @media (max-width: 900px) {
+            .hero-inner { flex-direction: column-reverse; gap: 2rem; }
+            .hero-img img { max-width: 320px; }
+        }
+
+        /* ── TRUST BAR ── */
+        #trust-bar {
+            background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+            padding: 2rem 0;
+        }
+        .trust-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem 3rem;
+        }
+        .trust-item { display: flex; align-items: center; gap: .75rem; }
+        .trust-item svg { color: var(--gold); width: 1.2rem; height: 1.2rem; flex-shrink: 0; }
+        .trust-item span { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--emerald); }
+
+        /* ── ABOUT ── */
+        #about { padding: 6rem 0; background: #fff; }
+        .about-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; align-items: center; gap: 4rem;
+        }
+        .about-img { flex: 1; position: relative; }
+        .about-img-shadow {
+            position: absolute; inset: 0;
+            background: rgba(200,165,107,.2);
+            transform: translate(16px, 16px);
+            border-radius: 2px;
+        }
+        .about-img img {
+            position: relative; z-index: 1;
+            width: 100%; height: 580px; object-fit: cover; border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(15,61,54,.15);
+        }
+        .about-text { flex: 1; }
+        .about-text h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1.5rem; color: var(--charcoal); }
+        .about-lead { font-size: 1.15rem; font-weight: 400; color: var(--emerald); margin-bottom: 1.25rem; line-height: 1.6; }
+        .about-body { font-size: 1rem; color: rgba(47,47,47,.8); line-height: 1.75; margin-bottom: 1rem; }
+        .about-list {
+            border-left: 2px solid rgba(200,165,107,.5); padding-left: 1.25rem;
+            margin: 1rem 0 1.5rem; list-style: none;
+        }
+        .about-list li { font-size: .95rem; color: rgba(47,47,47,.8); padding: .3rem 0; }
+        .about-italic { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; color: var(--emerald); margin: 1rem 0 2rem; }
+
+        @media (max-width: 900px) {
+            .about-inner { flex-direction: column; gap: 2rem; }
+            .about-img img { height: 380px; }
+        }
+
+        /* ── FRAMEWORK ── */
+        #framework { padding: 6rem 0; background: var(--emerald); color: var(--cream); }
+        .framework-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+        .section-header h2 { font-size: clamp(2.2rem, 4.5vw, 3.5rem); color: var(--gold); margin-bottom: 1rem; }
+        .section-header p { font-size: 1.15rem; font-weight: 300; color: rgba(246,242,237,.85); }
+        .framework-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+        }
+        .framework-card {
+            background: var(--forest); padding: 2rem; border-radius: 2px;
+            border: 1px solid rgba(200,165,107,.2);
+            transition: border-color .3s;
+        }
+        .framework-card:hover { border-color: rgba(200,165,107,.5); }
+        .framework-letter {
+            font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 500;
+            color: rgba(200,165,107,.2); line-height: 1; margin-bottom: 1rem;
+        }
+        .framework-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--gold); margin-bottom: .75rem; }
+        .framework-desc { font-size: .95rem; color: rgba(246,242,237,.8); line-height: 1.65; }
+
+        @media (max-width: 900px) { .framework-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .framework-grid { grid-template-columns: 1fr; } }
+
+        /* ── ZONES ── */
+        #zones { padding: 6rem 0; background: var(--cream); }
+        .zones-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: center; }
+        .zones-inner h2 { font-size: clamp(2rem, 4vw, 3.2rem); max-width: 700px; margin: 0 auto 1.5rem; }
+        .zones-lead { font-size: 1.1rem; color: rgba(47,47,47,.8); max-width: 600px; margin: 0 auto 1rem; }
+        .zones-sub { font-size: 1rem; color: var(--emerald); font-weight: 700; margin-bottom: 3rem; }
+        .zones-circles { display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; }
+        .zone-item { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .zone-circle {
+            width: 6rem; height: 6rem; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold);
+            border: 2px solid rgba(200,165,107,.3); box-shadow: 0 8px 24px rgba(15,61,54,.12);
+        }
+        .zone-circle.a { background: var(--emerald); }
+        .zone-circle.b { background: var(--forest); }
+        .zone-label { font-size: .9rem; font-weight: 700; letter-spacing: .05em; }
+
+        /* ── WHO I HELP ── */
+        #who { padding: 8rem 0; background: var(--charcoal); position: relative; overflow: hidden; }
+        .who-bg {
+            position: absolute; inset: 0;
+            background-size: cover; background-position: center;
+            opacity: .3; mix-blend-mode: overlay;
+        }
+        .who-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to right, rgba(15,61,54,.92) 0%, rgba(15,61,54,.5) 100%);
+        }
+        .who-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2; color: var(--cream); }
+        .who-inner h2 { font-size: clamp(2.2rem, 4vw, 3.5rem); color: var(--gold); margin-bottom: 2.5rem; }
+        .who-sub { font-size: 1.4rem; font-weight: 300; margin-bottom: 2rem; }
+        .who-list { list-style: none; padding: 0; margin: 0 0 3rem; }
+        .who-list li { display: flex; align-items: center; gap: 1rem; padding: .6rem 0; font-size: 1.05rem; }
+        .who-dot { width: .5rem; height: .5rem; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+        .btn-gold {
+            background: var(--gold); color: var(--emerald);
+            padding: 1rem 2.5rem; border-radius: 2px; border: none;
+            font-family: 'Lato', sans-serif; font-size: .85rem; font-weight: 700;
+            letter-spacing: .08em; text-transform: uppercase;
+            cursor: pointer; text-decoration: none;
+            transition: background .2s;
+        }
+        .btn-gold:hover { background: var(--soft-gold); }
+
+        /* ── SERVICES ── */
+        #services { padding: 6rem 0; background: #fff; }
+        .services-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-title-center { text-align: center; margin-bottom: 4rem; }
+        .section-title-center h2 { font-size: clamp(2.2rem, 4vw, 3.5rem); margin-bottom: .75rem; }
+        .gold-rule { width: 6rem; height: 3px; background: var(--gold); margin: 0 auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .service-card {
+            background: var(--cream); padding: 2.5rem; border-radius: 2px;
+            border: 1px solid var(--line); display: flex; flex-direction: column;
+            transition: box-shadow .3s;
+        }
+        .service-card:hover { box-shadow: 0 20px 50px rgba(15,61,54,.12); }
+        .service-card h3 { font-size: 1.6rem; margin-bottom: 1rem; }
+        .service-card p { font-size: 1rem; color: rgba(47,47,47,.7); flex-grow: 1; line-height: 1.65; margin-bottom: 2rem; }
+        .btn-service {
+            width: 100%; padding: .85rem; border: 1.5px solid var(--emerald);
+            color: var(--emerald); background: transparent; border-radius: 2px;
+            font-family: 'Lato', sans-serif; font-size: .8rem; font-weight: 700;
+            letter-spacing: .1em; text-transform: uppercase; cursor: pointer;
+            transition: background .2s, color .2s;
+        }
+        .btn-service:hover { background: var(--emerald); color: #fff; }
+
+        @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
+
+        /* ── CLIENT JOURNEY ── */
+        #journey { padding: 6rem 0; background: var(--cream); border-top: 1px solid var(--line); }
+        .journey-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .journey-steps {
+            display: flex; flex-wrap: wrap; justify-content: space-between;
+            position: relative; gap: 1.5rem; margin-top: 3rem;
+        }
+        .journey-step { display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; min-width: 140px; }
+        .step-circle {
+            width: 4rem; height: 4rem; border-radius: 50%;
+            background: var(--emerald); color: var(--gold);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+            box-shadow: 0 8px 20px rgba(15,61,54,.2); border: 3px solid var(--cream);
+            margin-bottom: 1.25rem; flex-shrink: 0;
+        }
+        .step-label { font-size: .9rem; font-weight: 700; color: var(--emerald); max-width: 140px; }
+
+        /* ── LEAD MAGNET ── */
+        #lead { padding: 6rem 0; background: var(--emerald); color: var(--cream); text-align: center; }
+        .lead-inner { max-width: 700px; margin: 0 auto; padding: 0 2rem; }
+        #lead h2 { font-size: 1.5rem; color: var(--gold); margin-bottom: .5rem; letter-spacing: .05em; }
+        #lead h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 2rem; }
+        #lead p { font-size: 1.1rem; font-weight: 300; color: rgba(246,242,237,.9); margin-bottom: 2.5rem; line-height: 1.7; }
+        .lead-form { display: flex; gap: 1rem; max-width: 520px; margin: 0 auto; }
+        .lead-form input {
+            flex: 1; padding: 1rem 1.5rem; border-radius: 2px; border: none;
+            font-family: 'Lato', sans-serif; font-size: 1rem; color: var(--charcoal);
+            outline: none;
+        }
+        .lead-form input:focus { box-shadow: 0 0 0 2px var(--gold); }
+        .lead-form button {
+            background: var(--gold); color: var(--emerald); padding: 1rem 1.75rem;
+            border: none; border-radius: 2px; font-family: 'Lato', sans-serif;
+            font-size: .8rem; font-weight: 700; letter-spacing: .08em;
+            text-transform: uppercase; cursor: pointer; white-space: nowrap;
+            transition: background .2s;
+        }
+        .lead-form button:hover { background: var(--soft-gold); }
+        #lead small { display: block; margin-top: 1rem; font-size: .8rem; color: rgba(246,242,237,.5); }
+        @media (max-width: 560px) { .lead-form { flex-direction: column; } }
+
+        /* ── TESTIMONIALS ── */
+        #testimonials { padding: 6rem 0; background: #fff; }
+        .testimonials-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+        .testimonial-card {
+            background: var(--cream); padding: 3rem; border-radius: 2px;
+            border: 1px solid var(--line); text-align: center; position: relative;
+            min-height: 220px; display: flex; flex-direction: column; justify-content: center;
+        }
+        .quote-icon { color: rgba(200,165,107,.25); width: 3rem; height: 3rem; margin: 0 auto 1.5rem; }
+        .testimonial-text { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: rgba(47,47,47,.8); line-height: 1.6; margin-bottom: 1.5rem; }
+        .testimonial-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--emerald); }
+        .t-controls { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+        .t-btn {
+            width: 3rem; height: 3rem; border-radius: 50%;
+            border: 1.5px solid var(--emerald); background: transparent;
+            color: var(--emerald); cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: background .2s, color .2s;
+        }
+        .t-btn:hover { background: var(--emerald); color: #fff; }
+
+        /* ── FAQ ── */
+        #faq { padding: 6rem 0; background: var(--cream); border-top: 1px solid var(--line); }
+        .faq-inner { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+        .faq-item {
+            background: #fff; border: 1px solid var(--line); border-radius: 2px;
+            margin-bottom: 1rem; overflow: hidden;
+        }
+        .faq-q {
+            width: 100%; padding: 1.25rem 1.5rem;
+            display: flex; justify-content: space-between; align-items: center;
+            background: none; border: none; cursor: pointer; text-align: left;
+        }
+        .faq-q span { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--emerald); font-weight: 500; }
+        .faq-q svg { color: var(--gold); flex-shrink: 0; transition: transform .3s; }
+        .faq-q.open svg { transform: rotate(180deg); }
+        .faq-a { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .35s; }
+        .faq-a.open { padding: 0 1.5rem 1.25rem; max-height: 300px; }
+        .faq-a p { font-size: .95rem; color: rgba(47,47,47,.7); line-height: 1.7; }
+
+        /* ── FINAL CTA ── */
+        #final-cta { padding: 8rem 0; background: var(--cream); text-align: center; position: relative; overflow: hidden; }
+        .cta-blur { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: rgba(200,165,107,.06); border-radius: 50%; filter: blur(60px); pointer-events: none; }
+        .final-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+        #final-cta h2 { font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.15; margin-bottom: 2rem; }
+        #final-cta p { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; color: var(--emerald); margin-bottom: 3rem; }
+
+        /* ── CONTACT ── */
+        #contact { padding: 6rem 0; background: #fff; }
+        .contact-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; gap: 5rem; align-items: flex-start; }
+        .contact-left { flex: 1; }
+        .contact-left h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1rem; }
+        .contact-left p { font-size: 1rem; color: rgba(47,47,47,.7); line-height: 1.7; margin-bottom: 2rem; }
+        .contact-details { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+        .contact-detail { display: flex; align-items: center; gap: .75rem; font-size: .9rem; color: var(--charcoal); }
+        .contact-detail svg { color: var(--gold); flex-shrink: 0; }
+        .contact-detail a { color: var(--emerald); text-decoration: none; }
+        .contact-detail a:hover { text-decoration: underline; }
+        .contact-right { flex: 1; }
+        .contact-form { background: var(--cream); padding: 2.5rem; border-radius: 2px; border: 1px solid var(--line); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .form-group { display: flex; flex-direction: column; gap: .4rem; }
+        .form-group label { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(47,47,47,.6); }
+        .form-group input,
+        .form-group textarea {
+            padding: .85rem 1rem; background: #fff; border: 1px solid var(--line);
+            border-radius: 2px; font-family: 'Lato', sans-serif; font-size: .95rem;
+            color: var(--charcoal); outline: none; transition: border-color .2s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus { border-color: var(--emerald); }
+        .form-group textarea { resize: vertical; }
+        .btn-submit {
+            width: 100%; padding: 1rem; margin-top: 1rem;
+            background: var(--emerald); color: #fff; border: none; border-radius: 2px;
+            font-family: 'Lato', sans-serif; font-size: .8rem; font-weight: 700;
+            letter-spacing: .12em; text-transform: uppercase; cursor: pointer;
+            transition: background .2s;
+        }
+        .btn-submit:hover { background: var(--forest); }
+        #form-status { margin-top: .75rem; font-size: .9rem; text-align: center; color: var(--emerald); }
+
+        @media (max-width: 900px) {
+            .contact-inner { flex-direction: column; gap: 2.5rem; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        /* ── FOOTER ── */
+        footer { background: var(--emerald); color: var(--cream); padding: 4rem 0 2rem; border-top: 1px solid rgba(200,165,107,.2); }
+        .foot-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(246,242,237,.1); }
+        .foot-brand h3 { font-size: 2rem; color: var(--gold); margin-bottom: .75rem; }
+        .foot-brand p { font-size: .9rem; color: rgba(246,242,237,.6); max-width: 280px; margin-bottom: 1.5rem; line-height: 1.65; }
+        .foot-socials { display: flex; gap: .75rem; }
+        .foot-social {
+            width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--forest);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--cream); text-decoration: none;
+            transition: background .2s, color .2s;
+        }
+        .foot-social:hover { background: var(--gold); color: var(--emerald); }
+        .foot-col h4 { font-size: 1rem; color: var(--gold); margin-bottom: 1.25rem; font-family: 'Lato', sans-serif; font-weight: 700; letter-spacing: .05em; }
+        .foot-col ul { list-style: none; padding: 0; margin: 0; }
+        .foot-col li { margin-bottom: .6rem; }
+        .foot-col a { color: rgba(246,242,237,.6); text-decoration: none; font-size: .9rem; transition: color .2s; }
+        .foot-col a:hover { color: #fff; }
+        .foot-bottom { text-align: center; font-size: .8rem; color: rgba(246,242,237,.4); }
+
+        @media (max-width: 768px) { .foot-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+        /* ── FLOATING WHATSAPP ── */
+        .float-wa {
+            position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99;
+            width: 3.5rem; height: 3.5rem; border-radius: 50%;
+            background: #25D366; color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,.18);
+            text-decoration: none; transition: transform .2s;
+        }
+        .float-wa:hover { transform: scale(1.1); }
+
+        /* ── REVEAL ── */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">
+            <img src="upload_1.jpeg" alt="Her Next Chapter Logo">
+            <span>Her Next Chapter™</span>
+        </a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#framework">Framework</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button id="menu-btn" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+    </div>
+    <div id="mobile-menu">
+        <a href="#" onclick="closeMobileMenu()">Home</a>
+        <a href="#about" onclick="closeMobileMenu()">About</a>
+        <a href="#framework" onclick="closeMobileMenu()">Framework</a>
+        <a href="#services" onclick="closeMobileMenu()">Services</a>
+        <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+    <div class="hero-inner">
+        <div class="hero-text reveal">
+            <h1>Your Next Chapter<br>Starts Here</h1>
+            <p class="hero-sub">Rediscover your confidence, reconnect with your desires, and create a life that feels fully aligned with who you're becoming.</p>
+            <p class="hero-desc">Through the Beyond Zones Framework™, Kim helps women navigate life transitions, relationship changes, intimacy challenges and personal reinvention with clarity, confidence and compassion.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-primary">Book a Free Discovery Call</a>
+                <a href="#framework" class="btn-outline">Explore the Framework</a>
+            </div>
+            <div class="hero-stars">
+                <div class="stars">
+                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" style="width:1.2rem;height:1.2rem"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" style="width:1.2rem;height:1.2rem"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" style="width:1.2rem;height:1.2rem"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" style="width:1.2rem;height:1.2rem"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" style="width:1.2rem;height:1.2rem"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <span class="hero-quote">"Helping women move beyond survival and into self-discovery."</span>
+            </div>
+        </div>
+        <div class="hero-img reveal">
+            <img src="upload_1.jpeg" alt="Her Next Chapter — Kim">
+        </div>
+    </div>
+</section>
+
+<!-- TRUST BAR -->
+<div id="trust-bar">
+    <div class="trust-inner">
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            <span>Holistic Approach</span>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Trauma-Informed</span>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Confidential Support</span>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <span>Online Sessions Worldwide</span>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            <span>Women 35+</span>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="about-inner">
+        <div class="about-img reveal">
+            <div class="about-img-shadow"></div>
+            <img src="Kim headshot.jpeg" alt="Kim — Her Next Chapter">
+        </div>
+        <div class="about-text reveal">
+            <h2>Hi, I'm Kim</h2>
+            <p class="about-lead">There comes a point in many women's lives where the life they've built no longer reflects the woman they're becoming.</p>
+            <p class="about-body">Maybe you're navigating:</p>
+            <ul class="about-list">
+                <li>Separation or divorce</li>
+                <li>Loss of intimacy</li>
+                <li>Low confidence</li>
+                <li>Body image struggles</li>
+                <li>Sexual disconnection</li>
+                <li>Midlife transitions</li>
+                <li>Relationship uncertainty</li>
+            </ul>
+            <p class="about-body">I created the <strong style="color:var(--emerald)">Beyond Zones Framework™</strong> because transformation doesn't happen by fixing one problem.</p>
+            <p class="about-italic">It happens when we address every part of who you are.</p>
+            <a href="#contact" class="btn-primary">Work with Kim</a>
+        </div>
+    </div>
+</section>
+
+<!-- FRAMEWORK -->
+<section id="framework">
+    <div class="framework-inner">
+        <div class="section-header reveal">
+            <h2>The Beyond Zones Framework™</h2>
+            <p>Move beyond who you were. Into who you're becoming.</p>
+        </div>
+        <div class="framework-grid">
+            <div class="framework-card reveal">
+                <div class="framework-letter">B</div>
+                <div class="framework-title">Beliefs</div>
+                <p class="framework-desc">Identify the unconscious stories shaping your relationships, confidence and intimacy.</p>
+            </div>
+            <div class="framework-card reveal">
+                <div class="framework-letter">E</div>
+                <div class="framework-title">Embodiment</div>
+                <p class="framework-desc">Understand the synergy between your mind and body.</p>
+            </div>
+            <div class="framework-card reveal">
+                <div class="framework-letter">Y</div>
+                <div class="framework-title">Your Truth</div>
+                <p class="framework-desc">Reconnect with your values, needs and authentic identity.</p>
+            </div>
+            <div class="framework-card reveal">
+                <div class="framework-letter">O</div>
+                <div class="framework-title">Openness</div>
+                <p class="framework-desc">Discover new possibilities for growth, pleasure and connection. Be Curious.</p>
+            </div>
+            <div class="framework-card reveal">
+                <div class="framework-letter">N</div>
+                <div class="framework-title">Nurture</div>
+                <p class="framework-desc">Self-care is the foundation of wellness.</p>
+            </div>
+            <div class="framework-card reveal">
+                <div class="framework-letter">D</div>
+                <div class="framework-title">Direction</div>
+                <p class="framework-desc">Turn your insight into actionable steps.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ZONES CHECK-IN -->
+<section id="zones">
+    <div class="zones-inner">
+        <h2 class="reveal">Before We Go Beyond, We Check The Foundations</h2>
+        <p class="zones-lead reveal">Many women try to change their lives while exhausted, overwhelmed and unsupported.</p>
+        <p class="zones-sub reveal">The ZONES Check-In™ helps us identify what needs attention first.</p>
+        <div class="zones-circles">
+            <div class="zone-item reveal"><div class="zone-circle a">Z</div><span class="zone-label">Sleep</span></div>
+            <div class="zone-item reveal"><div class="zone-circle b">O</div><span class="zone-label">Oxygen &amp; Nature</span></div>
+            <div class="zone-item reveal"><div class="zone-circle a">N</div><span class="zone-label">Nutrition</span></div>
+            <div class="zone-item reveal"><div class="zone-circle b">E</div><span class="zone-label">Exercise</span></div>
+            <div class="zone-item reveal"><div class="zone-circle a">S</div><span class="zone-label">Support</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- WHO I HELP -->
+<section id="who">
+    <div class="who-bg" style="background-image:url('bg-who-i-help.jpg')"></div>
+    <div class="who-overlay"></div>
+    <div class="who-inner">
+        <h2 class="reveal">Who I Help</h2>
+        <p class="who-sub reveal">Women who are:</p>
+        <ul class="who-list">
+            <li class="reveal"><span class="who-dot"></span>Starting over after divorce</li>
+            <li class="reveal"><span class="who-dot"></span>Feeling disconnected from themselves</li>
+            <li class="reveal"><span class="who-dot"></span>Struggling with confidence</li>
+            <li class="reveal"><span class="who-dot"></span>Experiencing intimacy challenges</li>
+            <li class="reveal"><span class="who-dot"></span>Exploring sexual wellbeing</li>
+            <li class="reveal"><span class="who-dot"></span>Seeking personal growth</li>
+            <li class="reveal"><span class="who-dot"></span>Ready for their next chapter</li>
+        </ul>
+        <a href="#contact" class="btn-gold reveal">Let's Talk</a>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="services-inner">
+        <div class="section-title-center reveal">
+            <h2>How We Can Work Together</h2>
+            <div class="gold-rule"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <h3>Discovery Session</h3>
+                <p>90-minute deep-dive assessment to explore where you are and map the path forward.</p>
+                <button class="btn-service" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
+            </div>
+            <div class="service-card reveal">
+                <h3>Beyond Zones Coaching</h3>
+                <p>Ongoing personalised transformation programme built around your unique journey.</p>
+                <button class="btn-service" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Learn More</button>
+            </div>
+            <div class="service-card reveal">
+                <h3>Sexual Wellness Support</h3>
+                <p>Holistic support around intimacy, confidence and connection — in a safe, non-judgemental space.</p>
+                <button class="btn-service" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Learn More</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CLIENT JOURNEY -->
+<section id="journey">
+    <div class="journey-inner">
+        <div class="section-title-center reveal">
+            <h2>The Client Journey</h2>
+            <p style="color:rgba(47,47,47,.7);margin-top:.5rem;font-size:1.1rem">Your path to transformation</p>
+        </div>
+        <div class="journey-steps">
+            <div class="journey-step reveal"><div class="step-circle">01</div><span class="step-label">Book your call</span></div>
+            <div class="journey-step reveal"><div class="step-circle">02</div><span class="step-label">Complete your Beyond Zones Assessment</span></div>
+            <div class="journey-step reveal"><div class="step-circle">03</div><span class="step-label">Gain clarity on what is holding you back</span></div>
+            <div class="journey-step reveal"><div class="step-circle">04</div><span class="step-label">Create your transformation plan</span></div>
+            <div class="journey-step reveal"><div class="step-circle">05</div><span class="step-label">Step confidently into your next chapter</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- LEAD MAGNET -->
+<section id="lead">
+    <div class="lead-inner">
+        <h2>Free Download</h2>
+        <h3>Is It Time For Your Next Chapter?</h3>
+        <p>Get the free self-reflection workbook and discover where you are now and what needs attention next.</p>
+        <form class="lead-form" onsubmit="event.preventDefault()">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Download Free Workbook</button>
+        </form>
+        <small>Join our newsletter. Unsubscribe at any time.</small>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+    <div class="testimonials-inner">
+        <div class="section-title-center reveal">
+            <h2>Client Stories</h2>
+            <div class="gold-rule"></div>
+        </div>
+        <div class="testimonial-card reveal">
+            <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            <p class="testimonial-text" id="t-text">"Kim's approach completely changed how I view my transition. The Beyond Zones framework gave me the structure I needed when everything felt chaotic."</p>
+            <p class="testimonial-name" id="t-name">Sarah T.</p>
+        </div>
+        <div class="t-controls">
+            <button class="t-btn" onclick="testimonialPrev()" aria-label="Previous">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="t-btn" onclick="testimonialNext()" aria-label="Next">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <div class="faq-inner">
+        <div class="section-title-center reveal">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-item reveal">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span>Is this therapy?</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><p>No, this is coaching. While therapy often focuses on healing past trauma and diagnosing mental health conditions, coaching is forward-focused. We acknowledge the past, but our primary goal is creating actionable steps for your future.</p></div>
+        </div>
+        <div class="faq-item reveal">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span>Is this coaching?</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><p>Yes, utilizing the Beyond Zones Framework™, Kim provides specialised coaching tailored to women navigating midlife transitions, relationship changes, and personal reinvention.</p></div>
+        </div>
+        <div class="faq-item reveal">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span>Are sessions online?</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><p>Yes, all sessions are conducted securely online via video call, allowing you to participate from the comfort of your own home.</p></div>
+        </div>
+        <div class="faq-item reveal">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span>Do you work internationally?</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><p>Absolutely. Thanks to the online format, Kim works with women all over the world. Sessions are coordinated across time zones.</p></div>
+        </div>
+        <div class="faq-item reveal">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span>How do I know if this is right for me?</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><p>The best way to know is to book a Free Discovery Call. We'll discuss where you are, what you're looking for, and see if the Beyond Zones Framework™ is the right fit for your journey.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="final-cta">
+    <div class="cta-blur"></div>
+    <div class="final-inner">
+        <h2 class="reveal">You Don't Need To Have<br>Everything Figured Out</h2>
+        <p class="reveal">You only need to take the first step.</p>
+        <a href="#contact" class="btn-primary reveal" style="font-size:.9rem;padding:1.25rem 2.5rem">Book Your Free Discovery Call</a>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="contact-inner">
+        <div class="contact-left reveal">
+            <h2>Get In Touch</h2>
+            <p>Ready to take the first step? Send a message and Kim will get back to you within 24 hours. All enquiries are completely confidential.</p>
+            <div class="contact-details">
+                <div class="contact-detail">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <a href="mailto:kimberley@hernextchapterbeyond.com">kimberley@hernextchapterbeyond.com</a>
+                </div>
+                <div class="contact-detail">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5 19.79 19.79 0 01.17 1 2 2 0 012.19 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.62-.62a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+                    <a href="https://wa.me/34675448591?text=Hi%20Kim%2C%20I%27m%20interested%20in%20your%20coaching%20services%20and%20would%20love%20to%20learn%20more." target="_blank">+34 675 44 85 91</a>
+                </div>
+                <div class="contact-detail">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                    <span>Online sessions — available worldwide</span>
+                </div>
+            </div>
+        </div>
+        <div class="contact-right reveal">
+            <div class="contact-form">
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="04c92627-8157-4ce4-aa83-0b2f6cdcad55">
+                    <input type="hidden" name="subject" value="New enquiry from Her Next Chapter website">
+                    <input type="hidden" name="from_name" value="Her Next Chapter Website">
+                    <input type="hidden" name="redirect" value="false">
+                    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" name="name" placeholder="Jane Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email</label>
+                            <input type="email" name="email" placeholder="jane@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:1rem">
+                        <label>Subject</label>
+                        <input type="text" name="subject_line" placeholder="Discovery Call / Coaching enquiry">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" rows="5" placeholder="Tell Kim a little about yourself and what you're looking for..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                    <p id="form-status"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-inner">
+        <div class="foot-grid">
+            <div class="foot-brand">
+                <h3>Her Next Chapter™</h3>
+                <p>Beyond Zones Framework™ coaching for women navigating life transitions, relationship changes and personal reinvention.</p>
+                <div class="foot-socials">
+                    <a href="#" class="foot-social" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="#" class="foot-social" aria-label="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                    </a>
+                    <a href="#" class="foot-social" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="mailto:kimberley@hernextchapterbeyond.com" class="foot-social" aria-label="Email">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="foot-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#framework">Framework</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="foot-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="foot-bottom">
+            <p>&copy; <span id="year"></span> Her Next Chapter™. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/34675448591?text=Hi%20Kim%2C%20I%27m%20interested%20in%20your%20coaching%20services%20and%20would%20love%20to%20learn%20more%20about%20the%20Beyond%20Zones%20Framework%E2%84%A2." target="_blank" rel="noopener" class="float-wa" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
+
+// Mobile menu
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+// Testimonials
+const testimonials = [
+    { text: "Kim's approach completely changed how I view my transition. The Beyond Zones framework gave me the structure I needed when everything felt chaotic.", name: "Sarah T." },
+    { text: "I finally feel like I have permission to explore what I actually want in this next phase of life. The intimacy coaching was profoundly healing.", name: "Emma W." },
+    { text: "Working with Kim was the best investment I've made in myself. I feel confident, grounded, and excited for the future for the first time in years.", name: "Rachel M." }
+];
+let tIdx = 0;
+function renderTestimonial() {
+    document.getElementById('t-text').textContent = '"' + testimonials[tIdx].text + '"';
+    document.getElementById('t-name').textContent = testimonials[tIdx].name;
+}
+function testimonialNext() { tIdx = (tIdx + 1) % testimonials.length; renderTestimonial(); }
+function testimonialPrev() { tIdx = (tIdx - 1 + testimonials.length) % testimonials.length; renderTestimonial(); }
+
+// FAQ
+function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.faq-q').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
+    if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+}
+
+// Contact form
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const status = document.getElementById('form-status');
+    const btn = this.querySelector('.btn-submit');
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    try {
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(this) });
+        const data = await res.json();
+        if (data.success) {
+            status.textContent = '✓ Message sent! Kim will be in touch within 24 hours.';
+            status.style.color = 'var(--emerald)';
+            this.reset();
+        } else {
+            status.textContent = 'Something went wrong. Please try again.';
+            status.style.color = '#c0392b';
+        }
+    } catch { status.textContent = 'Connection error. Please try again.'; status.style.color = '#c0392b'; }
+    btn.textContent = 'Send Message'; btn.disabled = false;
+});
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
