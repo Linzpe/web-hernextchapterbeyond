@@ -458,12 +458,38 @@
         .iphm-badge svg { color: var(--gold); flex-shrink: 0; }
         .iphm-badge span { font-size: .8rem; font-weight: 700; letter-spacing: .05em; color: var(--emerald); }
 
+        /* ── ANNOUNCEMENT BANNER ── */
+        #announcement-banner {
+            background: var(--emerald); color: #fff;
+            padding: .75rem 3rem .75rem 1.5rem;
+            text-align: center; position: relative; z-index: 60;
+            font-size: .82rem; font-weight: 400; line-height: 1.55;
+        }
+        #announcement-banner strong { font-weight: 600; }
+        #announcement-banner a {
+            color: #fff; font-weight: 600; text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .banner-close {
+            position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+            background: none; border: none; color: rgba(255,255,255,.7);
+            cursor: pointer; font-size: 1.2rem; line-height: 1; padding: .2rem .4rem;
+            transition: color .2s;
+        }
+        .banner-close:hover { color: #fff; }
         /* ── REVEAL ── */
         .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
         .reveal.visible { opacity: 1; transform: none; }
     </style>
 </head>
 <body>
+
+<!-- ANNOUNCEMENT BANNER -->
+<div id="announcement-banner">
+    <strong>✨ Empower Your Well-Being:</strong> Claim a Free 20-Minute Discovery Call to explore your path in Women's Wellness and Holistic Sexual Wellness. Let's uncover the next step in your transformation—<strong>limited spots, real connection.</strong>
+    <a href="#contact"> Book your free call →</a>
+    <button class="banner-close" onclick="this.parentElement.style.display='none'" aria-label="Close banner">&times;</button>
+</div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -555,6 +581,7 @@
         </div>
         <div class="about-text reveal">
             <h2>Hi, I'm Kim</h2>
+            <p class="about-lead" style="font-size:1rem; color:rgba(47,47,47,.7); font-weight:400; margin-bottom:.75rem;">Certified women's wellness coach and holistic sex therapy practitioner using somatic techniques to support you in your wellbeing journey.</p>
             <p class="about-lead">There comes a point in many women's lives where the life they've built no longer reflects the woman they're becoming.</p>
             <p class="about-body">Maybe you're navigating:</p>
             <ul class="about-list">
